@@ -1,0 +1,23 @@
+.denied {
+  background-image: url("../pictures/sad-baby-yoda.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: cover;
+  background-size: contain;
+  padding: 400px;
+}
+
+.denied-h1 {
+  background-color: white;
+  padding: 40px;
+  border-radius: 60px;
+  border-style: solid;
+  height: 100px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+}
