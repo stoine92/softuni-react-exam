@@ -10,7 +10,7 @@ function Header() {
     <Link className="homeBtn" to="/">SW</Link>
     <Nav className="mr-auto">
       <Nav.Link to="/">Home</Nav.Link>
-      <Nav.Link to="#features">About</Nav.Link>
+      <Nav.Link href="/about/About">About</Nav.Link>
       <Nav.Link to="#pricing">FAQ</Nav.Link>
     </Nav>
     <Form inline>

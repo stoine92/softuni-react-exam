@@ -1,5 +1,4 @@
 import './underAge.css'
-import Header from '../../commons/Header/Header'
 import Footer from '../../commons/Footer/Footer'
 
 function UnderAge() {
