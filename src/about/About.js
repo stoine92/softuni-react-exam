@@ -1,4 +1,4 @@
-import { Jumbotron } from "react-bootstrap";
+import { Jumbotron, Button } from "react-bootstrap";
 import Header from "../commons/Header/Header";
 import Footer from "../commons/Footer/Footer";
 
@@ -26,7 +26,9 @@ function About() {
           reproduced in their exact original form, accompanied by English
           versions from the 1914 translation by H. Rackham.
         </p>
-       
+        <p>
+          <Button variant="primary" href="/">Go back</Button>
+        </p>
       </Jumbotron>
       <Footer />
     </>
