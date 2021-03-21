@@ -6,7 +6,7 @@ function UnderAge() {
     <div className="denied">
       
       <h1 className="denied-h1">
-        Access Denied! Sorry, you need to be 16 years of age or over to join.
+        Access Denied! Sorry, you need to be 16 years old or over to join.
       </h1>
       <Footer />
     </div>

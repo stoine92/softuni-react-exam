@@ -9,7 +9,7 @@ function Header() {
   <Navbar bg="dark" variant="dark">
     <Link className="homeBtn" to="/">SW</Link>
     <Nav className="mr-auto">
-      <Nav.Link to="/">Home</Nav.Link>
+      <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
       <Nav.Link href="/about/About">About</Nav.Link>
       <Nav.Link to="#pricing">FAQ</Nav.Link>
     </Nav>
