@@ -10,7 +10,7 @@
 .denied-h1 {
   background-color: white;
   padding: 40px;
-  border-radius: 60px;
+  border-radius: 40px;
   border-style: solid;
   height: 100px;
   width: 600px;
@@ -20,4 +20,5 @@
   text-align: center;
   font-weight: bold;
   font-family: monospace;
+  font-size: 22px;
 }

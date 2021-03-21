@@ -1,3 +1,0 @@
-const About = () => <h1>About PAge</h1>
-
-export default About;

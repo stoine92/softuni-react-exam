@@ -1,19 +1,26 @@
-import React from "react";
 import './header.css'
-import About from '../About'
-import {Route, Link, NavLink, Redirect, Switch,} from 'react-router-dom'
+import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 function Header() {
   return (
-    <div className="header">
-      <ul className="header-ul">
-        <Route path="/about" component={About}><li><a>Home </a></li></Route>
-        <li><a>Login </a></li>
-        <li><a>Register </a></li>
-        <li><a>Portfolio </a></li>
-      </ul>
-    </div>
+    <>
+  <Navbar bg="dark" variant="dark">
+    <Link className="homeBtn" to="/">SW</Link>
+    <Nav className="mr-auto">
+      <Nav.Link to="/">Home</Nav.Link>
+      <Nav.Link to="#features">About</Nav.Link>
+      <Nav.Link to="#pricing">FAQ</Nav.Link>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-info">Search</Button>
+    </Form>
+  </Navbar>
+  <br />
+  
+</>
   );
 }
 

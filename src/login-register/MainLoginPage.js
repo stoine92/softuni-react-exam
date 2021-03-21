@@ -1,7 +1,10 @@
 import { Component } from "react";
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
-import './mainLogin.css'
+import "./mainLogin.css";
+import { Link } from 'react-router-dom';
+import {Button, Form} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from '../commons/Header/Header';
+import Footer from '../commons/Footer/Footer';
 
 class MainLoginPage extends Component {
   constructor(props) {
@@ -10,25 +13,39 @@ class MainLoginPage extends Component {
 
   render() {
     return (
+    
       <div className="login-form">
         <Header />
-        <form>
-          <label>Nickname:</label>
-          <br />
-          <input type="text" id="nickname" name="nickname"></input>
-          <br />
-          <label>Password:</label>
-          <br />
-          <input type="text" id="password" name="password"></input>
-          <br />
-          <button type="submit" value="submit">
-            Login
-          </button>
-          <a> / Register</a>
-        </form>
-        <Footer />
+        <Form style={{
+        width: '20rem',
+        margin: '0 auto',
+        marginTop: '100px',
+        padding: '40px 25px 40px 25px',
+       backgroundColor: "#222",
+      }}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address:</Form.Label>
+          <Form.Control type="email" placeholder="email@email.com" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+        <Link className ="regClass" to="/login-register/MainRegisterPage">
+           / Register
+        </Link>
+      </Form>
+      <Footer />
       </div>
-    );
+    
+   );
   }
 }
 

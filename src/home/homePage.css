@@ -7,23 +7,32 @@
   padding: 400px;
 }
 
-.main-h1 {
-    margin-top: -200px;
-    width: 700px;
-    text-align: center;
-    font-size: 60px;
-    color: brown;
-    font-weight: bold;
-    font-family: monospace;
-}
 .wrapper {
     background-color: white;
     padding: 40px;
     border-radius: 20px;
     border-style: solid;
+    
 }
 .main-p {
     font-weight: bold;
     font-family: monospace;
     font-size: 20px;
 }
+
+.entry-link:link, .entry-link:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .entry-link:hover, .entry-link:active {
+    background-color: green;
+    color: white;
+  }
