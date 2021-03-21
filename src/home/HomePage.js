@@ -1,21 +1,24 @@
 import "./homePage.css";
 import { Link } from "react-router-dom";
-
+import { Card, Button } from "react-bootstrap";
 
 function HomePage() {
   return (
     <div className="main">
-      <div className="wrapper">
-        <p className="main-p">Please verify your age: </p>
-       
-
-        <Link className="entry-link" to="/login-register/MainLoginPage">
-          I declare, I am 16 years or older
-        </Link>
-        <Link className="entry-link" to="/home/underAge/UnderAge">
-          I am under 16 years of age
-        </Link>
-      </div>
+      <Card style={{
+        width: '24rem',
+        margin: "0 auto",
+        padding: "35.5px",
+        color: 'whitesmoke',
+        backgroundColor: "#222",
+        }}>
+        <Card.Body>
+          <Card.Title>Please verify your age:</Card.Title>
+          <Button variant="primary" href="/login-register/MainLoginPage">I am 16, or over</Button >
+          <Button variant="secondary" style={{marginLeft: '30px'}} href="/home/underAge/UnderAge">I am under 16</Button >
+        </Card.Body>
+      </Card>
+      
     </div>
   );
 }
