@@ -1,5 +1,4 @@
 import "./homePage.css";
-import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
 function HomePage() {
@@ -15,7 +14,7 @@ function HomePage() {
         <Card.Body>
           <Card.Title>Please verify your age:</Card.Title>
           <Button variant="primary" href="/login-register/MainLoginPage">I am 16, or over</Button >
-          <Button variant="secondary" style={{marginLeft: '30px'}} href="/home/underAge/UnderAge">I am under 16</Button >
+          <Button variant="secondary" style={{marginLeft: '30px'}} href="/underAge/UnderAge">I am under 16</Button >
         </Card.Body>
       </Card>
       
