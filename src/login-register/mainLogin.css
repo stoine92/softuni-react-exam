@@ -10,7 +10,12 @@
 
 .regClass {
   text-decoration: none;
-  color: white;
+  color: grey;
   padding-left: 10px;
   font-size: 20px;
+}
+
+.regClass:hover {
+  text-decoration: none;
+  color: whitesmoke;
 }
