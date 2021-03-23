@@ -12,6 +12,8 @@ function Header() {
       <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
       <Nav.Link href="/about/About">About</Nav.Link>
       <Nav.Link to="#pricing">FAQ</Nav.Link>
+      <Nav.Link to="#pricing"> | </Nav.Link>
+      <Nav.Link href="/login-register/MainLoginPage">Login/Register</Nav.Link>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />

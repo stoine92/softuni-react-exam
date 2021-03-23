@@ -1,4 +1,4 @@
-import "./homePage.css";
+import "./home.css";
 import { Card, Button } from "react-bootstrap";
 
 function HomePage() {
