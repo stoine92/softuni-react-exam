@@ -1,23 +1,24 @@
 import './header.css'
-import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap'
+import { Navbar, Nav, Form} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
 function Header() {
   return (
     <>
-  <Navbar bg="dark" variant="dark">
+  <Navbar bg="dark" variant="dark" style={{
+    marginBottom: "-40px"
+  }}>
     <Link className="homeBtn" to="/">SW</Link>
     <Nav className="mr-auto">
       <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
       <Nav.Link href="/about/About">About</Nav.Link>
       <Nav.Link to="#pricing">FAQ</Nav.Link>
       <Nav.Link to="#pricing"> | </Nav.Link>
-      <Nav.Link href="/login-register/MainLoginPage">Login/Register</Nav.Link>
+      <Nav.Link href="/login-register/MainLoginPage">Login</Nav.Link>
     </Nav>
     <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-info">Search</Button>
+      <p className="welcome">Welcome, stoine92@gmail.com </p>
     </Form>
   </Navbar>
   <br />
