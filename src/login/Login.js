@@ -3,86 +3,85 @@ import fire from "../fire";
 import "./loginStyles.css";
 import HeaderNotSigned from "../commons/Header/HeaderNotSigned";
 import Footer from "../commons/Footer/Footer";
-import { Button } from "react-bootstrap";
+
 const Login = () => {
-  const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState(false);
-
-  const handleLogin = () => {
-    clearErrors();
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            setPasswordError(err.message);
-            break;
+    const [user, setUser] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [hasAccount, setHasAccount] = useState(false);
+  
+    const handleLogin = () => {
+      clearErrors();
+      fire
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch((err) => {
+          switch (err.code) {
+            case "auth/invalid-email":
+            case "auth/user-disabled":
+            case "auth/user-not-found":
+              setEmailError(err.message);
+              break;
+            case "auth/wrong-password":
+              setPasswordError(err.message);
+              break;
+          }
+        });
+    };
+  
+    const handleSignUp = () => {
+      clearErrors();
+      fire
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch((err) => {
+          switch (err.code) {
+            case "auth/invalid-already-in-use":
+            case "auth/invalid-email":
+              setEmailError(err.message);
+              break;
+            case "auth/weak-password":
+              setPasswordError(err.message);
+              break;
+          }
+        });
+    };
+  
+    const authListener = () => {
+      fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+          clearInputs();
+          setUser(user);
+        } else {
+          setUser("");
         }
       });
-  };
-
-  const handleSignUp = () => {
-    clearErrors();
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
-
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
-  };
-
-  const clearInputs = () => {
-    setEmail("");
-    setPassword("");
-  };
-
-  const clearErrors = () => {
-    setEmailError("");
-    setPasswordError("");
-  };
-
-  useEffect(() => {
-    authListener();
-  }, []);
+    };
+  
+    const clearInputs = () => {
+      setEmail("");
+      setPassword("");
+    };
+  
+    const clearErrors = () => {
+      setEmailError("");
+      setPasswordError("");
+    };
+  
+    useEffect(() => {
+      authListener();
+    }, []);
 
   return (
     <div className="login-form">
-      <HeaderNotSigned />
+        <HeaderNotSigned />
       <section className="login">
         <div className="loginContainer">
           <label>Username</label>
           <br />
-          <input
-            className="input"
+          <input className="input"
             type="email"
             autoFocus
             required
@@ -104,24 +103,23 @@ const Login = () => {
           <div className="btnContainer">
             {hasAccount ? (
               <>
-                <Button variant="primary" onClick={handleSignUp}>
-                  Sign in
-                </Button>
+                
+                <button className="button">Sign in</button>
                 <p>
                   Don't have an account ?
-                  <span onClick={() => setHasAccount(!hasAccount)}>
+                  <span className="switchSpan" onClick={() => setHasAccount(!hasAccount)}>
                     Sign up
                   </span>
                 </p>
               </>
             ) : (
               <>
-                <Button variant="primary" onClick={handleSignUp}>
-                  Sign up
-                </Button>
+                
+                <button className="button">Sign up</button>
+
                 <p>
                   Have an account ?
-                  <span onClick={() => setHasAccount(!hasAccount)}>
+                  <span className="switchSpan" onClick={() => setHasAccount(!hasAccount)}>
                     Sign in
                   </span>
                 </p>

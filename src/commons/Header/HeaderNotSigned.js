@@ -16,7 +16,7 @@ function Header() {
       <Nav.Link href="/about/About">About</Nav.Link>
       <Nav.Link to="#pricing">FAQ</Nav.Link>
       <Nav.Link to="#"> | </Nav.Link>
-      <Nav.Link href="/login-register/MainLoginPage">Login</Nav.Link>
+      <Nav.Link href="/login/Login">Login</Nav.Link>
     </Nav>
     <Form inline>
     </Form>
