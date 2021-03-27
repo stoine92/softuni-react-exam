@@ -1,12 +1,12 @@
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
+// import Header from "../commons/Header/Header";
+import HeaderNotSigned from "../commons/Header/HeaderNotSigned";
 import {Carousel, Button } from "react-bootstrap";
 import "./homePage.css";
 
 function HomePage() {
   return (
     <>
-      <Header />
+      <HeaderNotSigned />
       <Carousel fade> 
   <Carousel.Item className='test'>
     <img
@@ -17,7 +17,7 @@ function HomePage() {
     <Carousel.Caption>
       <h3>Exclusive content</h3>
       <p>Information about the most popular characters.</p>
-    <Button variant="primary" href="/login-register/MainRegisterPage" style={{
+    <Button variant="primary" href="/login/Login" style={{
       marginBottom: '20px',
     }}>Sign up today</Button>
       
@@ -33,7 +33,7 @@ function HomePage() {
     <Carousel.Caption>
       <h3>Hidden features and info</h3>
       <p>Shock all your friends with the knolwedge you have.</p>
-      <Button variant="primary" href="/login-register/MainRegisterPage" style={{
+      <Button variant="primary" href="/login/Login" style={{
       marginBottom: '20px',
     }}>Sign up today</Button>
     </Carousel.Caption>
@@ -48,7 +48,7 @@ function HomePage() {
     <Carousel.Caption>
       <h3>True Star Wars fan platform</h3>
       <p>For everyone who is one with the forse and the forse is one with him</p>
-      <Button variant="primary" href="/login-register/MainRegisterPage" style={{
+      <Button variant="primary" href="/login/Login" style={{
       marginBottom: '20px',
     }}>Sign up today</Button>
     </Carousel.Caption>
