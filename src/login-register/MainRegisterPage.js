@@ -1,33 +1,82 @@
+import React, { useState, useEffect } from "react";
+import fire from "../fire";
 import Header from "../commons/Header/Header";
 import Footer from "../commons/Footer/Footer";
 import { Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const MainRegisterPage = (props) => {
-  // const onSubmitForm = (event) => {
-  //   event.preventDefault();
-  //   const {email, password, rePassword} = event.target;
+const MainRegisterPage = () => {
+  // const {
+  //   email,
+  //   setEmail,
+  //   password,
+  //   setPassword,
+  //   handleLogin,
+  //   handleSignUp,
+  //   hasAccount,
+  //   setHasAccount,
+  //   emailError,
+  //   passwordError,
+  // } = props;
 
-  // };
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [hasAccount, setHasAccount] = useState(false);
 
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    handleLogin,
-    handleSignUp,
-    hasAccount,
-    setHasAccount,
-    emailError,
-    passwordError,
-  } = props;
+  const handleSignUp = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/invalid-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
 
+  const handleLogout = () => {
+    fire.auth().signOut();
+  };
+
+  const authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        clearInputs();
+        setUser(user);
+      } else {
+        setUser("");
+      }
+    });
+  };
+
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
+
+  useEffect(() => {
+    authListener();
+  }, []);
   return (
     <div className="login-form">
       <Header />
-      <Form
+      {/* <Form
         // onSubmit={onSubmitForm}
         style={{
           width: "20rem",
@@ -43,8 +92,9 @@ const MainRegisterPage = (props) => {
             type="email"
             placeholder="email@email.com"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            defaultDalue={email}
+            onClick={handleSignUp}
+
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -57,8 +107,7 @@ const MainRegisterPage = (props) => {
             type="password"
             placeholder="Password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+           
           />
         </Form.Group>
         <Form.Group controlId="formBasicPassword">
@@ -69,13 +118,42 @@ const MainRegisterPage = (props) => {
             name="rePassword"
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSignUp}>
+        <Button variant="primary" type="submit">
           Register
         </Button>
         <Link className="regClass" to="/login-register/MainLoginPage">
           / Login
         </Link>
-      </Form>
+      </Form> */}
+
+<form className="login">
+        <div className="loginContainer">
+          <label>Username</label><br/>
+          <input
+            type="email"
+            autoFocus
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+           <p className="errorMsg">{emailError}</p>
+          <label>Password</label><br/>
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p className="errorMsg">{passwordError}</p>
+          <div className="btnContainer">
+            
+              <>
+              <button type="submit" onClick={handleSignUp}>Sign up</button>
+              <p>Don't have an account ? <Link to="./MainLoginPage" >Sign in</Link></p>
+              </>
+          </div>
+        </div>
+      </form>
       <Footer />
     </div>
   );
