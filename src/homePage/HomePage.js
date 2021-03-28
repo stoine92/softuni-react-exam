@@ -1,12 +1,12 @@
 // import Header from "../commons/Header/Header";
-import HeaderNotSigned from "../commons/Header/HeaderNotSigned";
+import Header from "../commons/Header/Header";
 import {Carousel, Button } from "react-bootstrap";
 import "./homePage.css";
 
 function HomePage() {
   return (
     <>
-      <HeaderNotSigned />
+      <Header />
       <Carousel fade> 
   <Carousel.Item className='test'>
     <img

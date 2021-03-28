@@ -59,4 +59,6 @@
   transition: color 1s;
   
 }
-
+.err {
+  color: red;
+}

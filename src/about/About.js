@@ -2,9 +2,12 @@ import { Jumbotron, Button } from "react-bootstrap";
 import Header from "../commons/Header/Header";
 import Footer from "../commons/Footer/Footer";
 
+
 function About(props) {
+  console.log(props.test)
   return (
     <>
+
       <Header />
       <Jumbotron>
         <h1>About page</h1>

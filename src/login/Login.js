@@ -1,94 +1,42 @@
-import React, { useState, useEffect } from "react";
-import fire from "../fire";
 import "./loginStyles.css";
-import HeaderNotSigned from "../commons/Header/HeaderNotSigned";
+import Header from "../commons/Header/Header";
 import Footer from "../commons/Footer/Footer";
+import {Redirect} from "react-router-dom";
+import { useContext } from "react";
+import isLoggedInUser from "../store/store"
 
-const Login = () => {
-    const [user, setUser] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [hasAccount, setHasAccount] = useState(false);
-  
-    const handleLogin = () => {
-      clearErrors();
-      fire
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .catch((err) => {
-          switch (err.code) {
-            case "auth/invalid-email":
-            case "auth/user-disabled":
-            case "auth/user-not-found":
-              setEmailError(err.message);
-              break;
-            case "auth/wrong-password":
-              setPasswordError(err.message);
-              break;
-          }
-        });
-    };
-  
-    const handleSignUp = () => {
-      clearErrors();
-      fire
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .catch((err) => {
-          switch (err.code) {
-            case "auth/invalid-already-in-use":
-            case "auth/invalid-email":
-              setEmailError(err.message);
-              break;
-            case "auth/weak-password":
-              setPasswordError(err.message);
-              break;
-          }
-        });
-    };
-  
-    const authListener = () => {
-      fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-          clearInputs();
-          setUser(user);
-        } else {
-          setUser("");
-        }
-      });
-    };
-  
-    const clearInputs = () => {
-      setEmail("");
-      setPassword("");
-    };
-  
-    const clearErrors = () => {
-      setEmailError("");
-      setPasswordError("");
-    };
-  
-    useEffect(() => {
-      authListener();
-    }, []);
+const Login = (props) => {
+  const [isLoggedIn, setIsLoggedIn] = useContext(isLoggedInUser);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleLogin,
+    handleSignUp,
+    hasAccount,
+    setHasAccount,
+    emailError,
+    passwordError
 
+  } = props;
+  
   return (
     <div className="login-form">
-        <HeaderNotSigned />
+      <Header />
       <section className="login">
         <div className="loginContainer">
           <label>Username</label>
           <br />
-          <input className="input"
+          <input
+            className="input"
             type="email"
             autoFocus
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <p>{emailError}</p>
+          <p class="err">{emailError}</p>
           <label>Password</label>
           <br />
           <input
@@ -99,27 +47,35 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <p>{passwordError}</p>
+          <p class="err">{passwordError}</p>
           <div className="btnContainer">
             {hasAccount ? (
               <>
-                
-                <button className="button">Sign in</button>
+                <button className="button" onClick={handleLogin}>
+                  Sign in
+                </button>
                 <p>
                   Don't have an account ?
-                  <span className="switchSpan" onClick={() => setHasAccount(!hasAccount)}>
+                  <span
+                    className="switchSpan"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
                     Sign up
                   </span>
                 </p>
               </>
             ) : (
               <>
-                
-                <button className="button">Sign up</button>
+                <button className="button" onClick={handleSignUp}>
+                  Sign up
+                </button>
 
                 <p>
                   Have an account ?
-                  <span className="switchSpan" onClick={() => setHasAccount(!hasAccount)}>
+                  <span
+                    className="switchSpan"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
                     Sign in
                   </span>
                 </p>
@@ -127,7 +83,10 @@ const Login = () => {
             )}
           </div>
         </div>
+        {isLoggedIn ? <Redirect to="/mainPage/MainPage"/> : (<></>)}
       </section>
+     
+     
       <Footer />
     </div>
   );
