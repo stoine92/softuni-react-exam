@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
-import fire from "./fire";
+import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import fire from "./fire";
 import Home from "./home/Home";
 import HomePage from "./homePage/HomePage";
 import UnderAge from "./home/underAge/UnderAge";
-import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./about/About";
 import Login from "./login/Login";
 import MainPage from "./mainPage/MainPage";
 import isLoggedInUser from "./store/store";
-
+import People from './mainPage/People';
+import Planets from './mainPage/Planets';
 
 function App() {
+  // Authenticator
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +22,14 @@ function App() {
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
 
+  // Api data
+  const [people, setPeople] = useState([]);
+  const [planets, setPlanets] = useState([]);
+  // Page loading 
+  const [loading, setLoading] = useState(true);
+
+  // Authenticator functions
   const handleLogin = () => {
     clearErrors();
     fire
@@ -88,31 +96,57 @@ function App() {
   useEffect(() => {
     authListener();
   }, []);
+
+  //Api functions
+  useEffect(() => {
+    async function fetchPeople() {
+      let result = await fetch("https://swapi.dev/api/people/?format=json");
+      let data = await result.json();
+      setPeople(data.results);
+    }
+    async function fetchPlanets() {
+      let result = await fetch("https://swapi.dev/api/planets/?format=json");
+      let data = await result.json();
+      setPlanets(data.results);
+    }
+
+    fetchPeople();
+    fetchPlanets();
+    setLoading(false);
+  }, []);
+
   return (
     <isLoggedInUser.Provider value={[isLoggedIn, setIsLoggedIn]}>
       <div className="App">
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login/Login">
-              <Login
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                handleLogin={handleLogin}
-                handleSignUp={handleSignUp}
-                hasAccount={hasAccount}
-                setHasAccount={setHasAccount}
-                emailError={emailError}
-                passwordError={passwordError}
-              />    
-            </Route>
-            <Route path="/homePage/HomePage" component={HomePage} />
-            <Route path="/homePage/HomePage" component={HomePage} />
-            <Route path="/about/About" component={About}/>
-            <Route path="/mainPage/MainPage" component={MainPage} />
-            <Route path="/underAge/UnderAge" component={UnderAge} />
-          </Switch>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login/Login">
+            <Login
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleLogin={handleLogin}
+              handleSignUp={handleSignUp}
+              hasAccount={hasAccount}
+              setHasAccount={setHasAccount}
+              emailError={emailError}
+              passwordError={passwordError}
+            />
+            
+          </Route>
+          {loading ? (<h1>Loading...</h1>) : (<Route path="/mainPage/People">
+              <People data={people}/>
+            </Route>)}
+          <Route path="/mainPage/Planets">
+            <Planets data={planets} />
+          </Route>
+          <Route path="/homePage/HomePage" component={HomePage} />
+          <Route path="/homePage/HomePage" component={HomePage} />
+          <Route path="/about/About" component={About} />
+          <Route path="/mainPage/MainPage" component={MainPage} />
+          <Route path="/underAge/UnderAge" component={UnderAge} />
+        </Switch>
         {/* )} */}
       </div>
     </isLoggedInUser.Provider>

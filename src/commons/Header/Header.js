@@ -20,12 +20,13 @@ function Header() {
           marginBottom: "-40px",
         }}
       >
-        <Link className="homeBtn" to="/">
+        <Link className="homeBtn" onClick={handleLogout} to="/">
           SW
         </Link>
 
         <Nav className="mr-auto">
-          <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
+          {isLoggedIn ? (<Nav.Link href="/mainPage/MainPage">Home</Nav.Link>) : (<Nav.Link href="/homePage/HomePage">Home</Nav.Link>)}
+          
           <Nav.Link href="/about/About">About</Nav.Link>
           <Nav.Link to="#pricing">FAQ</Nav.Link>
           <Nav.Link to="#"> | </Nav.Link>
