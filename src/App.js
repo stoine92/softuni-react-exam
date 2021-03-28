@@ -12,6 +12,8 @@ import MainPage from "./mainPage/MainPage";
 import isLoggedInUser from "./store/store";
 import People from './mainPage/People';
 import Planets from './mainPage/Planets';
+import Films from './mainPage/Films';
+import Starships from './mainPage/Starships';
 
 function App() {
   // Authenticator
@@ -112,7 +114,7 @@ function App() {
       let data = await result.json();
       setPlanets(data.results);
     }
-    async function fetchMovies() {
+    async function fetchFilms() {
       let result = await fetch("https://swapi.dev/api/films/?format=json");
       let data = await result.json();
       setFilms(data.results);
@@ -126,7 +128,7 @@ function App() {
     
     fetchPeople();
     fetchPlanets();
-    fetchMovies();
+    fetchFilms();
     fetchStarships();
     
     setLoading(false);
@@ -157,6 +159,12 @@ function App() {
             </Route>)}
           <Route path="/mainPage/Planets">
             <Planets data={planets} />
+          </Route>
+          <Route path="/mainPage/Films">
+            <Films data={films} />
+          </Route>
+          <Route path="/mainPage/Starships">
+            <Starships data={starships} />
           </Route>
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/homePage/HomePage" component={HomePage} />
