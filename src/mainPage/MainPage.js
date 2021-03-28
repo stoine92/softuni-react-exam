@@ -13,6 +13,9 @@ const MainPage = () => {
                 
                 <Link to="/mainPage/People">People</Link>
                 <Link to="/mainPage/Planets">Planets</Link>
+                <Link to="/mainPage/Planets">Films</Link>
+                <Link to="/mainPage/Planets">Starships</Link>
+                <Link to="/mainPage/Planets">Planets</Link>
             </>
             <Footer />
             

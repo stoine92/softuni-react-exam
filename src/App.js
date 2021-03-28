@@ -26,6 +26,9 @@ function App() {
   // Api data
   const [people, setPeople] = useState([]);
   const [planets, setPlanets] = useState([]);
+  const [films, setFilms] = useState([]);
+  const [starships, setStarships] = useState([]);
+ 
   // Page loading 
   const [loading, setLoading] = useState(true);
 
@@ -109,9 +112,23 @@ function App() {
       let data = await result.json();
       setPlanets(data.results);
     }
-
+    async function fetchMovies() {
+      let result = await fetch("https://swapi.dev/api/films/?format=json");
+      let data = await result.json();
+      setFilms(data.results);
+    }
+    async function fetchStarships() {
+      let result = await fetch("https://swapi.dev/api/starships/?format=json");
+      let data = await result.json();
+      setStarships(data.results);
+    }
+    
+    
     fetchPeople();
     fetchPlanets();
+    fetchMovies();
+    fetchStarships();
+    
     setLoading(false);
   }, []);
 
