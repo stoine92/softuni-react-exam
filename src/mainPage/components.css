@@ -1,3 +1,28 @@
+.mainPage { 
+  background-image: url("/src/mainPage/pictures/headerImg.jpeg");
+  background-size: cover;
+  background-position: absolute;
+}
+.mainPageLinks { 
+  padding: 20px;
+ background-image: url("/src/mainPage/pictures/trial.jpeg");
+ background-size: cover;
+  text-decoration: none;
+  color: white;
+  width: 40%;
+  display: flex;
+  margin: 60px 0px 50px 480px;
+  position: relative;
+  font-size: 35px; 
+  text-align: center;
+}
+.mainPageLinks:hover {
+  text-decoration: none;
+  color: goldenrod;
+  opacity: 0.8;
+}
+
+
 .pplHeader {
   padding: 10px;
   background-color: whitesmoke;

@@ -11,10 +11,10 @@ const MainPage = () => {
             <>
                 <h2>Welcome </h2>
                 
-                <Link to="/mainPage/People">People</Link>
-                <Link to="/mainPage/Planets">Planets</Link>
-                <Link to="/mainPage/Films">Films</Link>
-                <Link to="/mainPage/Starships">Starships</Link>
+                <Link className="mainPageLinks" to="/mainPage/People">People</Link>
+                <Link className="mainPageLinks" to="/mainPage/Planets">Planets</Link>
+                <Link className="mainPageLinks" to="/mainPage/Films">Films</Link>
+                <Link className="mainPageLinks" to="/mainPage/Starships">Starships</Link>
                 
             </>
             <Footer />

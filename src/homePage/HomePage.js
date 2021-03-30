@@ -6,9 +6,10 @@ import "./homePage.css";
 function HomePage() {
   return (
     <>
+    
       <Header />
-      <Carousel fade> 
-  <Carousel.Item className='test'>
+      <Carousel fade className='test'> 
+  <Carousel.Item >
     <img
       className="d-block w-100"
       src="https://images.unsplash.com/photo-1459876947801-8879713c9b47?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80"
@@ -54,7 +55,7 @@ function HomePage() {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-      {/* <Footer /> */}
+
     </>
   );
 }

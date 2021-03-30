@@ -20,9 +20,6 @@ function People({ data }) {
             >
               <Card.Body>
                 <Card.Title>{people.name}</Card.Title>
-                <Card.Text>
-                  Please click to reveal information about <b>{people.name}</b>
-                </Card.Text>
                 <Card.Link href="#">Continue</Card.Link>
                 <Card.Link href="#">Go back</Card.Link>
               </Card.Body>
