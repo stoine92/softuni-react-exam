@@ -1,32 +1,37 @@
 import Header from "../commons/Header/Header";
 import Footer from "../commons/Footer/Footer";
 import { Card } from "react-bootstrap";
+import "./components.css";
 
 function People({ data }) {
   return (
     <>
       <Header />
-      <h1>People</h1>
-      {data.map((people, i) => {
-        return (
-          <Card style={{ width: "18rem" }} key={i}>
-            <Card.Body>
-              <Card.Title>{people.name}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
-              </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
-          </Card>
-        );
-      })}
+      <h1 className="pplHeader">Movie characters</h1>
+      <div className="pplDiv">
+        {data.map((people, i) => {
+          return (
+            <Card
+              className="pplCard"
+              style={{
+                width: "18rem",
+              }}
+              key={i}
+            >
+              <Card.Body>
+                <Card.Title>{people.name}</Card.Title>
+                <Card.Text>
+                  Please click to reveal information about <b>{people.name}</b>
+                </Card.Text>
+                <Card.Link href="#">Continue</Card.Link>
+                <Card.Link href="#">Go back</Card.Link>
+              </Card.Body>
+            </Card>
+          );
+        })}
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }

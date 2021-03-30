@@ -22,6 +22,7 @@ const Login = (props) => {
   } = props;
   
   return (
+    <>
     <div className="login-form">
       <Header />
       <section className="login">
@@ -87,8 +88,9 @@ const Login = (props) => {
       </section>
      
      
-      <Footer />
     </div>
+    <Footer />
+    </>
   );
 };
 

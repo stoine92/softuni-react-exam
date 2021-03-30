@@ -6,12 +6,15 @@ import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header() {
+  
   const handleLogout = () => {
     fire.auth().signOut();
   };
 
   const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInUser);
+  
   return (
+    
     <>
       <Navbar
         bg="dark"
@@ -20,7 +23,7 @@ function Header() {
           marginBottom: "-40px",
         }}
       >
-        <Link className="homeBtn" onClick={handleLogout} to="/">
+        <Link className="homeBtn"  onClick={handleLogout} to="/">
           SW
         </Link>
 
