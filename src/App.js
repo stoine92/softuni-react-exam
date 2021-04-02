@@ -14,6 +14,7 @@ import People from './mainPage/People';
 import Planets from './mainPage/Planets';
 import Films from './mainPage/Films';
 import Starships from './mainPage/Starships';
+import Quiz from './quizFolder/Quiz'
 
 function App() {
   // Authenticator
@@ -137,6 +138,7 @@ function App() {
   return (
     <isLoggedInUser.Provider value={[isLoggedIn, setIsLoggedIn]}>
       <div className="App">
+        {/* <Quiz /> */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login/Login">

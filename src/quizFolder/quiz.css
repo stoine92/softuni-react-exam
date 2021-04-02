@@ -1,0 +1,14 @@
+.quizDiv {
+    width: 100%;
+    background-color: goldenrod;
+    padding: 50px 10px;
+}
+
+.content {
+    display: table;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: blueviolet;
+    padding: 30px;
+}
