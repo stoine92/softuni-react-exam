@@ -138,7 +138,7 @@ function App() {
   return (
     <isLoggedInUser.Provider value={[isLoggedIn, setIsLoggedIn]}>
       <div className="App">
-        {/* <Quiz /> */}
+        <Quiz />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login/Login">

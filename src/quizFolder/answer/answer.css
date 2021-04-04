@@ -6,10 +6,23 @@
 .answers li { 
     padding: 10px;
     border-left: 4px solid red;
-    background-color: grey;
+    background-color: #bbb;
     margin: 0 0 5px;
 }
 .answers li:hover { 
     cursor: pointer;
     background-color: #a2a2a2;
+}
+
+.answers .correct,
+.answers .correct:hover{
+    background-color: #1db900;
+    border-left: 4px solid #0f6300; 
+    color: white;
+}
+.answers .incorrect,
+.answers .incorrect:hover{
+    background-color: #ec0000;
+    border-left: 4px solid #FF3B3B;
+    color: white;
 }
