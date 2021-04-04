@@ -2,6 +2,8 @@ import { Component } from "react";
 import "./quiz.css";
 import Question from "./question/Question";
 import Answer from "./answer/Answer";
+import Header from '../commons/Header/Header';
+import Footer from '../commons/Footer/Footer';
 
 class Quiz extends Component {
   state = {
@@ -9,6 +11,13 @@ class Quiz extends Component {
       1: 'Who is the director of Star Wars"?',
       2: "Who is the son of Darth Vader?",
       3: "When was the first movie launched?",
+      4: "Who are the only two characters who appear in every Star Wars movie?",
+      // 5: "",
+      // 6: "",
+      // 7: "",
+      // 8: "",
+      // 9: "",
+      // 10: "",
     },
     answers: {
       1: { 1: "Stephen King", 2: "George Lucas", 3: "Stephen Spielberg" },
@@ -23,11 +32,17 @@ class Quiz extends Component {
         2: "1982",
         3: "1978",
       },
+      4: {
+        1: "Han Solo and R2-D2",
+        2: "Yoda and Luke Skywalker",
+        3: "C-3PO and R2-D2",
+      }
     },
     correctAnswers: {
       1: "2",
       2: "1",
       3: "1",
+      4: "3",
     },
     correctAnswer: 0,
     clickedAnswer: 0,
@@ -68,6 +83,7 @@ class Quiz extends Component {
     } = this.state;
     return (
       <>
+      <Header />
         <div className="quizDiv">
           {step <= Object.keys(questions).length ? (
             <>
@@ -101,6 +117,7 @@ class Quiz extends Component {
             </div>
           )}
         </div>
+        <Footer />
       </>
     );
   }
