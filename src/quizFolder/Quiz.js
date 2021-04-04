@@ -6,34 +6,35 @@ import Answer from "./answer/Answer";
 class Quiz extends Component {
   state = {
     questions: {
-      1: 'What US city is known as the "birthplace of jazz"?',
-      2: 'What is the capital of Greece?',
-      3: 'What planet gave birth to Superman?',
+      1: 'Who is the director of Star Wars"?',
+      2: "Who is the son of Darth Vader?",
+      3: "When was the first movie launched?",
     },
     answers: {
-      1: { 1: 'Chicago', 2: 'New Orleans', 3: 'New York' },
-    },
-    2: {
-      1: 'Athens',
-      2: "Patras",
-      3: 'Kalamata'
-    },
-    3: {
-      1: "Krypton",
-      2: 'Mars',
-      3: 'Earth'
+      1: { 1: "Stephen King", 2: "George Lucas", 3: "Stephen Spielberg" },
+
+      2: {
+        1: "Luke Skywalker",
+        2: "Obi-Wan Kenobi",
+        3: "R2-D2",
+      },
+      3: {
+        1: "1977",
+        2: "1982",
+        3: "1978",
+      },
     },
     correctAnswers: {
-      1: '2',
-      2: '1',
-      3: '1',
+      1: "2",
+      2: "1",
+      3: "1",
     },
     correctAnswer: 0,
     clickedAnswer: 0,
     step: 1,
     score: 0,
   };
-  checkAnswer = answer => {
+  checkAnswer = (answer) => {
     const { correctAnswers, step, score } = this.state;
     if (answer === correctAnswers[step]) {
       this.setState({
@@ -48,19 +49,57 @@ class Quiz extends Component {
       });
     }
   };
+
+  nextStep = (step) => {
+    this.setState({
+      step: step + 1,
+      correctAnswer: 0,
+      clickedAnswer: 0,
+    });
+  };
   render() {
-    let { questions, step, correctAnswer, clickedAnswer, answers } = this.state;
+    let {
+      questions,
+      step,
+      correctAnswer,
+      clickedAnswer,
+      answers,
+      score,
+    } = this.state;
     return (
       <>
         <div className="quizDiv">
-          <Question question={questions[step]} />
-          <Answer
-            answer={answers[step]}
-            step={step}
-            checkAnswer={this.checkAnswer}
-            correctAnswer={correctAnswer}
-            clickedAnswer={clickedAnswer}
-          />
+          {step <= Object.keys(questions).length ? (
+            <>
+              <Question question={questions[step]} />
+              <Answer
+                answer={answers[step]}
+                step={step}
+                checkAnswer={this.checkAnswer}
+                correctAnswer={correctAnswer}
+                clickedAnswer={clickedAnswer}
+              />
+              <button
+                className="NextStep"
+                disabled={
+                  clickedAnswer && Object.keys(questions).length >= step
+                    ? false
+                    : true
+                }
+                onClick={() => this.nextStep(step)}
+              >
+                Next
+              </button>
+            </>
+          ) : (
+            <div className="finalPage">
+              <h1>You have finished the quiz!</h1>
+              <p>
+                Your score is: {score} of {Object.keys(questions).length}
+              </p>
+              <p>Thanks!</p>
+            </div>
+          )}
         </div>
       </>
     );

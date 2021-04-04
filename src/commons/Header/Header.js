@@ -31,7 +31,7 @@ function Header() {
           {isLoggedIn ? (<Nav.Link href="/mainPage/MainPage">Home</Nav.Link>) : (<Nav.Link href="/homePage/HomePage">Home</Nav.Link>)}
           
           <Nav.Link href="/about/About">About</Nav.Link>
-          <Nav.Link to="#pricing">FAQ</Nav.Link>
+          <Nav.Link href="/quizFolder/Quiz">FAQ</Nav.Link>
           <Nav.Link to="#"> | </Nav.Link>
           {isLoggedIn ? (
             <Nav.Link onClick={handleLogout} href="/login/Login">Logout</Nav.Link>

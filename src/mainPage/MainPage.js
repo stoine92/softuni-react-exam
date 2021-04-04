@@ -15,7 +15,7 @@ const MainPage = () => {
                 <Link className="mainPageLinks" to="/mainPage/Planets">Planets</Link>
                 <Link className="mainPageLinks" to="/mainPage/Films">Films</Link>
                 <Link className="mainPageLinks" to="/mainPage/Starships">Starships</Link>
-                
+                <Link className="quizPath" to="/quizFolder/Quiz">Take Quiz</Link>
             </>
             <Footer />
             

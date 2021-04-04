@@ -1,19 +1,19 @@
-.mainPage { 
+.mainPage {
   background-image: url("/src/mainPage/pictures/headerImg.jpeg");
   background-size: cover;
   background-position: absolute;
 }
-.mainPageLinks { 
+.mainPageLinks {
   padding: 20px;
- background-image: url("/src/mainPage/pictures/trial.jpeg");
- background-size: cover;
+  background-image: url("/src/mainPage/pictures/trial.jpeg");
+  background-size: cover;
   text-decoration: none;
   color: white;
   width: 40%;
   display: flex;
   margin: 60px 0px 50px 480px;
   position: relative;
-  font-size: 35px; 
+  font-size: 35px;
   text-align: center;
 }
 .mainPageLinks:hover {
@@ -21,7 +21,6 @@
   color: goldenrod;
   opacity: 0.8;
 }
-
 
 .pplHeader {
   padding: 10px;
@@ -55,4 +54,13 @@
   margin-top: 30px;
   margin-bottom: 30px;
   position: "relative";
+}
+.quizPath {
+  
+  background-color: #009e00;
+  color: white;
+  padding: 10px 30px;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
 }
