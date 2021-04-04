@@ -36,7 +36,7 @@ function Header() {
           {isLoggedIn ? (
             <Nav.Link onClick={handleLogout} href="/login/Login">Logout</Nav.Link>
           ) : (
-            <Nav.Link href="/login/Login">Login</Nav.Link>
+            <Nav.Link href="/login/Login">Login / Register</Nav.Link>
           )}
         </Nav>
         {isLoggedIn ? (

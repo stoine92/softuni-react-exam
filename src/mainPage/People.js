@@ -19,9 +19,22 @@ function People({ data }) {
               key={i}
             >
               <Card.Body>
-                <Card.Title>{people.name}</Card.Title>
-                <Card.Link href="#">Continue</Card.Link>
-                <Card.Link href="#">Go back</Card.Link>
+                <h2>{people.name}</h2>
+                <strong>
+                  Height: <p>{people.height}</p>
+                </strong>
+                <strong>
+                  Weight: <p>{people.mass}</p>
+                </strong>
+                <strong>
+                  Hair color: <p>{people.hair_color}</p>
+                </strong>
+                <strong>
+                  Born: <p>{people.birth_year}</p>
+                </strong>
+                <strong>
+                  Gender: <p>{people.gender}</p>
+                </strong>
               </Card.Body>
             </Card>
           );

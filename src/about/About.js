@@ -24,9 +24,7 @@ function About(props) {
           Tel: +44 7843 138809 <br />
           Email: tical9212@gmail.com
         </p>
-        <p>
-          <Button preventDefault variant="primary" href="/mainPage/MainPage">Go back</Button>
-        </p>
+        
       </Jumbotron>
       <Footer />
     </>

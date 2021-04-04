@@ -13,14 +13,15 @@ function Films({ data }) {
           return (
             <Card className="pplCard" style={{ width: "18rem" }} key={i}>
               <Card.Body>
-                <Card.Title>{films.title}</Card.Title>
-                <Card.Link href="#">Continue</Card.Link>
-                <Card.Link href="#">Go back</Card.Link>
+                <h3>{films.title}</h3>
+                <strong>Director: <p>{films.director}</p></strong>
+                <strong>Producers: <p>{films.producer}</p></strong>
+                <strong>Release date: <p>{films.release_date}</p></strong>
               </Card.Body>
             </Card>
           );
         })}
-      <Footer />
+        <Footer />
       </div>
     </>
   );

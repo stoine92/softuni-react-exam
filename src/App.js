@@ -168,6 +168,7 @@ function App() {
           <Route path="/mainPage/Starships">
             <Starships data={starships} />
           </Route>
+          {/* Less functional bit  */}
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/about/About" component={About} />
