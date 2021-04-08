@@ -12,9 +12,9 @@ function HomePage() {
         backgroundColor: "#222",
         }}>
         <Card.Body>
-          <Card.Title>Please verify your age:</Card.Title>
-          <Button variant="primary" href="/homePage/HomePage">I am 16, or over</Button >
-          <Button variant="secondary" style={{marginLeft: '30px'}} href="/underAge/UnderAge">I am under 16</Button >
+          <Card.Title>Welcome</Card.Title>
+          <Button variant="primary" href="/homePage/HomePage">Continue</Button >
+          {/* <Button variant="secondary" style={{marginLeft: '30px'}} href="/underAge/UnderAge">I am under 16</Button > */}
         </Card.Body>
       </Card>
       

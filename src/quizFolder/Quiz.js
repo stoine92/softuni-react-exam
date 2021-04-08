@@ -2,8 +2,7 @@ import { Component } from "react";
 import "./quiz.css";
 import Question from "./question/Question";
 import Answer from "./answer/Answer";
-import Header from '../commons/Header/Header';
-import Footer from '../commons/Footer/Footer';
+
 
 class Quiz extends Component {
   state = {
@@ -120,7 +119,6 @@ class Quiz extends Component {
     } = this.state;
     return (
       <>
-      <Header />
         <div className="quizDiv">
           {step <= Object.keys(questions).length ? (
             <>
@@ -154,7 +152,6 @@ class Quiz extends Component {
             </div>
           )}
         </div>
-        <Footer />
       </>
     );
   }

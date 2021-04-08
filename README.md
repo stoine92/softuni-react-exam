@@ -9,7 +9,6 @@ Routing
 Firebase - Database
 Images - unsplash.com
 API - swapi.dev
-
 Author
 Stoyan Nikolov
 

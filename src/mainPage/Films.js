@@ -1,12 +1,10 @@
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
 import { Card } from "react-bootstrap";
 import "./components.css";
 
 function Films({ data }) {
   return (
     <>
-      <Header />
+     
       <h1 className="pplHeader">Films</h1>
       <div className="pplDiv">
         {data.map((films, i) => {
@@ -21,7 +19,7 @@ function Films({ data }) {
             </Card>
           );
         })}
-        <Footer />
+       
       </div>
     </>
   );

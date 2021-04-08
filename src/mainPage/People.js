@@ -1,12 +1,10 @@
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
 import { Card } from "react-bootstrap";
 import "./components.css";
 
 function People({ data }) {
   return (
     <>
-      <Header />
+     
       <h1 className="pplHeader">Movie characters</h1>
       <div className="pplDiv">
         {data.map((people, i) => {
@@ -40,7 +38,7 @@ function People({ data }) {
           );
         })}
 
-        <Footer />
+       
       </div>
     </>
   );

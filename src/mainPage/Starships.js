@@ -1,12 +1,9 @@
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
 import { Card } from "react-bootstrap";
 import "./components.css";
 
 function Starships({ data }) {
   return (
     <>
-      <Header />
       <h1 className="pplHeader">Starships</h1>
       <div className="pplDiv">
       {data.map((starships, i) => {
@@ -26,8 +23,6 @@ function Starships({ data }) {
           </Card>
         );
       })}
-
-      <Footer />
       </div>
     </>
   );

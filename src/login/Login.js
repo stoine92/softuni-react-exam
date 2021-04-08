@@ -1,6 +1,4 @@
 import "./loginStyles.css";
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
 import {Redirect} from "react-router-dom";
 import { useContext } from "react";
 import isLoggedInUser from "../store/store"
@@ -24,7 +22,6 @@ const Login = (props) => {
   return (
     <>
     <div className="login-form">
-      <Header />
       <section className="login">
         <div className="loginContainer">
           <label>Username</label>
@@ -89,7 +86,6 @@ const Login = (props) => {
      
      
     </div>
-    <Footer />
     </>
   );
 };

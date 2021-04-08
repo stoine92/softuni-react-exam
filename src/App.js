@@ -3,9 +3,9 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import fire from "./fire";
-import Home from "./home/Home";
+// import Home from "./home/Home";
 import HomePage from "./homePage/HomePage";
-import UnderAge from "./home/underAge/UnderAge";
+// import UnderAge from "./home/underAge/UnderAge";
 import About from "./about/About";
 import Login from "./login/Login";
 import MainPage from "./mainPage/MainPage";
@@ -15,6 +15,8 @@ import Planets from './mainPage/Planets';
 import Films from './mainPage/Films';
 import Starships from './mainPage/Starships';
 import Quiz from './quizFolder/Quiz';
+import Header from './commons/Header/Header';
+import Footer from './commons/Footer/Footer';
 
 function App() {
   // Authenticator
@@ -138,9 +140,10 @@ function App() {
   return (
     <isLoggedInUser.Provider value={[isLoggedIn, setIsLoggedIn]}>
       <div className="App">
+        <Header username={user?.email} isAuthenticated={Boolean(user)}/>
         {/* <Quiz /> */}
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={HomePage} />
           <Route path="/login/Login">
             <Login
               email={email}
@@ -172,11 +175,12 @@ function App() {
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/about/About" component={About} />
           <Route path="/mainPage/MainPage" component={MainPage} />
-          <Route path="/underAge/UnderAge" component={UnderAge} />
+          {/* <Route path="/underAge/UnderAge" component={UnderAge} /> */}
           <Route path="/quizFolder/Quiz" component={Quiz} />
           
         </Switch>
         {/* )} */}
+        <Footer />
       </div>
     </isLoggedInUser.Provider>
   );

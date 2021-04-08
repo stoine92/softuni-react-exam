@@ -1,17 +1,17 @@
 import fire from "../../fire";
-import IsLoggedInUser from "../../store/store";
+// import IsLoggedInUser from "../../store/store";
 import { useContext } from "react";
 import "./header.css";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ username, isAuthenticated }) {
   const handleLogout = (e) => {
     fire.auth().signOut();
   };
-  
-  const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInUser);
-  
+
+  // const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInUser);
+
   return (
     <>
       <Navbar
@@ -26,20 +26,20 @@ function Header() {
         </Link>
 
         <Nav className="mr-auto">
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <Nav.Link href="/mainPage/MainPage">Home</Nav.Link>
           ) : (
             <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
           )}
 
           <Nav.Link href="/about/About">About</Nav.Link>
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <Nav.Link href="/quizFolder/Quiz">QnA</Nav.Link>
           ) : (
             <></>
           )}
           <Nav.Link to="#"> | </Nav.Link>
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <Nav.Link onClick={handleLogout} href="/login/Login">
               Logout
             </Nav.Link>
@@ -47,9 +47,9 @@ function Header() {
             <Nav.Link href="/login/Login">Login / Register</Nav.Link>
           )}
         </Nav>
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <Form inline>
-<p className="welcome">Welcome</p>
+            <p className="welcome">Welcome {username}</p>
           </Form>
         ) : (
           <Form inline>

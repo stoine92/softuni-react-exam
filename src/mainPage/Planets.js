@@ -1,12 +1,10 @@
-import Header from "../commons/Header/Header";
-import Footer from "../commons/Footer/Footer";
 import { Card } from "react-bootstrap";
 import "./components.css";
 
 function Planets({ data }) {
   return (
     <>
-      <Header />
+     
       <h1 className="pplHeader">Planets</h1>
       <div className="pplDiv">
         {data.map((planets, i) => {
@@ -34,7 +32,7 @@ function Planets({ data }) {
           );
         })}
 
-        <Footer />
+        
       </div>
     </>
   );
