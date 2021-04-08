@@ -14,7 +14,7 @@ import People from './mainPage/People';
 import Planets from './mainPage/Planets';
 import Films from './mainPage/Films';
 import Starships from './mainPage/Starships';
-import Quiz from './quizFolder/Quiz'
+import Quiz from './quizFolder/Quiz';
 
 function App() {
   // Authenticator
@@ -168,13 +168,13 @@ function App() {
           <Route path="/mainPage/Starships">
             <Starships data={starships} />
           </Route>
-          {/* Less functional bit  */}
-          <Route path="/homePage/HomePage" component={HomePage} />
+          {/* Less functional bit */}
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/about/About" component={About} />
           <Route path="/mainPage/MainPage" component={MainPage} />
           <Route path="/underAge/UnderAge" component={UnderAge} />
           <Route path="/quizFolder/Quiz" component={Quiz} />
+          
         </Switch>
         {/* )} */}
       </div>

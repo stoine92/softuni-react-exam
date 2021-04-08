@@ -1,5 +1,5 @@
-// import Header from "../commons/Header/Header";
 import Header from "../commons/Header/Header";
+import Footer from "../commons/Footer/Footer"
 import {Carousel, Button } from "react-bootstrap";
 import "./homePage.css";
 
@@ -55,7 +55,7 @@ function HomePage() {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-
+<Footer />
     </>
   );
 }

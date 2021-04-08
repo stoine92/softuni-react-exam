@@ -8,7 +8,7 @@ import Footer from '../commons/Footer/Footer';
 class Quiz extends Component {
   state = {
     questions: {
-      1: 'Who is the director of Star Wars"?',
+      1: 'Who is the director of Star Wars?',
       2: "Who is the son of Darth Vader?",
       3: "When was the first movie launched?",
       4: "Who are the only two characters who appear in every Star Wars movie?",

@@ -6,15 +6,13 @@ import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header() {
-  
-  const handleLogout = () => {
+  const handleLogout = (e) => {
     fire.auth().signOut();
   };
-
+  
   const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInUser);
   
   return (
-    
     <>
       <Navbar
         bg="dark"
@@ -23,25 +21,35 @@ function Header() {
           marginBottom: "-40px",
         }}
       >
-        <Link className="homeBtn"  onClick={handleLogout} to="/">
+        <Link className="homeBtn" onClick={handleLogout} to="/">
           SW
         </Link>
 
         <Nav className="mr-auto">
-          {isLoggedIn ? (<Nav.Link href="/mainPage/MainPage">Home</Nav.Link>) : (<Nav.Link href="/homePage/HomePage">Home</Nav.Link>)}
-          
+          {isLoggedIn ? (
+            <Nav.Link href="/mainPage/MainPage">Home</Nav.Link>
+          ) : (
+            <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
+          )}
+
           <Nav.Link href="/about/About">About</Nav.Link>
-          <Nav.Link href="/quizFolder/Quiz">FAQ</Nav.Link>
+          {isLoggedIn ? (
+            <Nav.Link href="/quizFolder/Quiz">QnA</Nav.Link>
+          ) : (
+            <></>
+          )}
           <Nav.Link to="#"> | </Nav.Link>
           {isLoggedIn ? (
-            <Nav.Link onClick={handleLogout} href="/login/Login">Logout</Nav.Link>
+            <Nav.Link onClick={handleLogout} href="/login/Login">
+              Logout
+            </Nav.Link>
           ) : (
             <Nav.Link href="/login/Login">Login / Register</Nav.Link>
           )}
         </Nav>
         {isLoggedIn ? (
           <Form inline>
-            <p className="welcome">Welcome</p>
+<p className="welcome">Welcome</p>
           </Form>
         ) : (
           <Form inline>
