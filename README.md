@@ -1,11 +1,22 @@
-# Getting Started with Create React App
+SoftUni React exam
+### This app includes information about the star wars movies and also there is a mini quiz to check your knolwedge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Built With
+React JS
+React Bootstrap - The web framework used
+Routing 
+Firebase - Database
+Images - unsplash.com
+API - swapi.dev
 
-## Available Scripts
+Author
+Stoyan Nikolov
 
-In the project directory, you can run:
 
+License
+This project is currently not licensed 
+
+Getting Started
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -61,10 +72,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Prerequisites
+As a start you need Visual studio code [https://code.visualstudio.com/], launch the app then go terminal - new terminal in the node js type npx create-react-app (either name of folder or . )
+
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+
