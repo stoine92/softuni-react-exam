@@ -64,6 +64,8 @@ function App() {
       .catch((err) => {
         switch (err.code) {
           case "auth/invalid-already-in-use":
+            setEmailError(err.message);
+            break;
           case "auth/invalid-email":
             setEmailError(err.message);
             break;

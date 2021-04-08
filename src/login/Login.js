@@ -32,7 +32,7 @@ const Login = (props) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <p class="err">{emailError}</p>
+          <p className="err">{emailError}</p>
           <label>Password</label>
           <br />
           <input
