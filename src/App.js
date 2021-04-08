@@ -23,7 +23,6 @@ function App() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
-  
 
   // Api data
   const [people, setPeople] = useState([]);
@@ -102,25 +101,26 @@ function App() {
 
   //Api functions
   useEffect(() => {
-    async function fetchPeople() {
-      let result = await fetch("https://swapi.dev/api/people/?format=json");
-      let data = await result.json();
-      setPeople(data.results);
+    function fetchPeople() {
+      fetch("https://swapi.dev/api/people/?format=json")
+        .then((data) => data.json())
+        .then((data) => setPeople(data.results));
     }
-    async function fetchPlanets() {
-      let result = await fetch("https://swapi.dev/api/planets/?format=json");
-      let data = await result.json();
-      setPlanets(data.results);
+
+    function fetchPlanets() {
+      fetch("https://swapi.dev/api/planets/?format=json")
+        .then((data) => data.json())
+        .then((data) => setPlanets(data.results));
     }
-    async function fetchFilms() {
-      let result = await fetch("https://swapi.dev/api/films/?format=json");
-      let data = await result.json();
-      setFilms(data.results);
+    function fetchFilms() {
+      fetch("https://swapi.dev/api/films/?format=json")
+        .then((data) => data.json())
+        .then((data) => setFilms(data.results));
     }
-    async function fetchStarships() {
-      let result = await fetch("https://swapi.dev/api/starships/?format=json");
-      let data = await result.json();
-      setStarships(data.results);
+    function fetchStarships() {
+      fetch("https://swapi.dev/api/starships/?format=json")
+        .then((data) => data.json())
+        .then((data) => setStarships(data.results));
     }
 
     fetchPeople();
@@ -132,51 +132,49 @@ function App() {
   }, []);
 
   return (
-    
-      <div className="App">
-        <Header username={user?.email} isAuthenticated={Boolean(user)} />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/login/Login">
-            <Login
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              handleLogin={handleLogin}
-              handleSignUp={handleSignUp}
-              hasAccount={hasAccount}
-              setHasAccount={setHasAccount}
-              emailError={emailError}
-              passwordError={passwordError}
-              isAuthenticated={Boolean(user)}
-            />
+    <div className="App">
+      <Header username={user?.email} isAuthenticated={Boolean(user)} />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/login/Login">
+          <Login
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignUp={handleSignUp}
+            hasAccount={hasAccount}
+            setHasAccount={setHasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+            isAuthenticated={Boolean(user)}
+          />
+        </Route>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Route path="/mainPage/People">
+            <People data={people} />
           </Route>
-          {loading ? (
-            <h1>Loading...</h1>
-          ) : (
-            <Route path="/mainPage/People">
-              <People data={people} />
-            </Route>
-          )}
-          <Route path="/mainPage/Planets">
-            <Planets data={planets} />
-          </Route>
-          <Route path="/mainPage/Films">
-            <Films data={films} />
-          </Route>
-          <Route path="/mainPage/Starships">
-            <Starships data={starships} />
-          </Route>
-          {/* Less functional bit */}
-          <Route path="/homePage/HomePage" component={HomePage} />
-          <Route path="/about/About" component={About} />
-          <Route path="/mainPage/MainPage" component={MainPage} />
-          <Route path="/quizFolder/Quiz" component={Quiz} />
-        </Switch>
-        <Footer />
-      </div>
-    
+        )}
+        <Route path="/mainPage/Planets">
+          <Planets data={planets} />
+        </Route>
+        <Route path="/mainPage/Films">
+          <Films data={films} />
+        </Route>
+        <Route path="/mainPage/Starships">
+          <Starships data={starships} />
+        </Route>
+        {/* Less functional bit */}
+        <Route path="/homePage/HomePage" component={HomePage} />
+        <Route path="/about/About" component={About} />
+        <Route path="/mainPage/MainPage" component={MainPage} />
+        <Route path="/quizFolder/Quiz" component={Quiz} />
+      </Switch>
+      <Footer />
+    </div>
   );
 }
 
