@@ -1,10 +1,8 @@
 import "./loginStyles.css";
 import {Redirect} from "react-router-dom";
-import { useContext } from "react";
-import isLoggedInUser from "../store/store"
+
 
 const Login = (props) => {
-  const [isLoggedIn, setIsLoggedIn] = useContext(isLoggedInUser);
   const {
     email,
     setEmail,
@@ -15,8 +13,8 @@ const Login = (props) => {
     hasAccount,
     setHasAccount,
     emailError,
-    passwordError
-
+    passwordError,
+    isAuthenticated
   } = props;
   
   return (
@@ -81,7 +79,7 @@ const Login = (props) => {
             )}
           </div>
         </div>
-        {isLoggedIn ? <Redirect to="/mainPage/MainPage"/> : (<></>)}
+        {isAuthenticated ? <Redirect to="/mainPage/MainPage"/> : (<></>)}
       </section>
      
      

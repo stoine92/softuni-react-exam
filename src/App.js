@@ -3,38 +3,35 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import fire from "./fire";
-// import Home from "./home/Home";
 import HomePage from "./homePage/HomePage";
-// import UnderAge from "./home/underAge/UnderAge";
 import About from "./about/About";
 import Login from "./login/Login";
 import MainPage from "./mainPage/MainPage";
-import isLoggedInUser from "./store/store";
-import People from './mainPage/People';
-import Planets from './mainPage/Planets';
-import Films from './mainPage/Films';
-import Starships from './mainPage/Starships';
-import Quiz from './quizFolder/Quiz';
-import Header from './commons/Header/Header';
-import Footer from './commons/Footer/Footer';
+import People from "./mainPage/People";
+import Planets from "./mainPage/Planets";
+import Films from "./mainPage/Films";
+import Starships from "./mainPage/Starships";
+import Quiz from "./quizFolder/Quiz";
+import Header from "./commons/Header/Header";
+import Footer from "./commons/Footer/Footer";
 
 function App() {
   // Authenticator
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
 
   // Api data
   const [people, setPeople] = useState([]);
   const [planets, setPlanets] = useState([]);
   const [films, setFilms] = useState([]);
   const [starships, setStarships] = useState([]);
- 
-  // Page loading 
+
+  // Page loading
   const [loading, setLoading] = useState(true);
 
   // Authenticator functions
@@ -83,10 +80,8 @@ function App() {
       if (user) {
         clearInputs();
         setUser(user);
-        setIsLoggedIn(true);
       } else {
-        setUser("");
-        setIsLoggedIn(false);
+        setUser(null);
       }
     });
   };
@@ -127,21 +122,19 @@ function App() {
       let data = await result.json();
       setStarships(data.results);
     }
-    
-    
+
     fetchPeople();
     fetchPlanets();
     fetchFilms();
     fetchStarships();
-    
+
     setLoading(false);
   }, []);
 
   return (
-    <isLoggedInUser.Provider value={[isLoggedIn, setIsLoggedIn]}>
+    
       <div className="App">
-        <Header username={user?.email} isAuthenticated={Boolean(user)}/>
-        {/* <Quiz /> */}
+        <Header username={user?.email} isAuthenticated={Boolean(user)} />
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/login/Login">
@@ -156,12 +149,16 @@ function App() {
               setHasAccount={setHasAccount}
               emailError={emailError}
               passwordError={passwordError}
+              isAuthenticated={Boolean(user)}
             />
-            
           </Route>
-          {loading ? (<h1>Loading...</h1>) : (<Route path="/mainPage/People">
-              <People data={people}/>
-            </Route>)}
+          {loading ? (
+            <h1>Loading...</h1>
+          ) : (
+            <Route path="/mainPage/People">
+              <People data={people} />
+            </Route>
+          )}
           <Route path="/mainPage/Planets">
             <Planets data={planets} />
           </Route>
@@ -175,14 +172,11 @@ function App() {
           <Route path="/homePage/HomePage" component={HomePage} />
           <Route path="/about/About" component={About} />
           <Route path="/mainPage/MainPage" component={MainPage} />
-          {/* <Route path="/underAge/UnderAge" component={UnderAge} /> */}
           <Route path="/quizFolder/Quiz" component={Quiz} />
-          
         </Switch>
-        {/* )} */}
         <Footer />
       </div>
-    </isLoggedInUser.Provider>
+    
   );
 }
 

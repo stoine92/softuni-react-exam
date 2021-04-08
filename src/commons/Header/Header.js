@@ -53,7 +53,7 @@ function Header({ username, isAuthenticated }) {
           </Form>
         ) : (
           <Form inline>
-            <p className="welcome">Please sign in</p>
+            <p className="welcome">Welcome guest</p>
           </Form>
         )}
       </Navbar>
