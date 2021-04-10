@@ -51,6 +51,7 @@
   margin-bottom: 20px;
 }
 .button:hover {
+  text-decoration: none;
   background-color: rgb(82, 36, 249);
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
