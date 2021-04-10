@@ -1,4 +1,4 @@
-import {Carousel, Button } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import "./homePage.css";
 import {Link} from 'react-router-dom';
 
