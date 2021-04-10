@@ -4,6 +4,7 @@ import { useContext } from "react";
 import "./header.css";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {storage} from '../../fire'
 
 function Header({ username, isAuthenticated }) {
   const handleLogout = (e) => {
@@ -34,7 +35,10 @@ function Header({ username, isAuthenticated }) {
 
           <Nav.Link href="/about/About">About</Nav.Link>
           {isAuthenticated ? (
+            <>
             <Nav.Link href="/quizFolder/Quiz">QnA</Nav.Link>
+            <Nav.Link href="/imgUpload/ImgUpload">Profile pic</Nav.Link>
+            </>
           ) : (
             <></>
           )}
@@ -54,7 +58,9 @@ function Header({ username, isAuthenticated }) {
         ) : (
           <Form inline>
             <p className="welcome">Welcome guest</p>
+            
           </Form>
+        
         )}
       </Navbar>
       <br />

@@ -14,6 +14,7 @@ import Starships from "./mainPage/Starships";
 import Quiz from "./quizFolder/Quiz";
 import Header from "./commons/Header/Header";
 import Footer from "./commons/Footer/Footer";
+import ImgUpload from './imgUpload/ImgUpload';
 
 function App() {
   // Authenticator
@@ -64,8 +65,6 @@ function App() {
       .catch((err) => {
         switch (err.code) {
           case "auth/invalid-already-in-use":
-            setEmailError(err.message);
-            break;
           case "auth/invalid-email":
             setEmailError(err.message);
             break;
@@ -136,6 +135,8 @@ function App() {
   return (
     <div className="App">
       <Header username={user?.email} isAuthenticated={Boolean(user)} />
+      
+      
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/login/Login">
@@ -174,6 +175,7 @@ function App() {
         <Route path="/about/About" component={About} />
         <Route path="/mainPage/MainPage" component={MainPage} />
         <Route path="/quizFolder/Quiz" component={Quiz} />
+        <Route path="/imgUpload/ImgUpload" component={ImgUpload} />
       </Switch>
       <Footer />
     </div>
