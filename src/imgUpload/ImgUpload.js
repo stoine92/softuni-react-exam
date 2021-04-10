@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { storage, auth } from "../fire";
-import "./img.css"
+import "./img.css";
 
 const ImgUpload = () => {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
-  
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -34,34 +33,35 @@ const ImgUpload = () => {
           .then((url) => {
             setUrl(url);
             var user = auth.currentUser;
-            user.updateProfile({
-                photoURL: url
-            })
-            .then(function() {
+            user
+              .updateProfile({
+                photoURL: url,
+              })
+              .then(function () {
                 // Update successful.
                 console.log(user);
-            })
-            .catch(function(error) {
+              })
+              .catch(function (error) {
                 // An error happened.
                 console.log(error);
-            });
-
+              });
           });
       }
     );
   };
 
   return (
-    <div className="container">
+    <div className="containerImg">
+      <div className="cont">
         <h1 className="h1Img">Image upload</h1>
         <br />
-        <img className="avatar-preview" src={url} alt="firebase-image" />
+        <img className="avatar-preview" src={url || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"} alt="firebase-image" />
         <br />
-        <input type="file" onChange={handleChange} />
-        <button onClick={handleUpload}>Upload</button>
+        <input type="file" className="imgSelector" onChange={handleChange} />
+        <button className="button" onClick={handleUpload}>Upload</button>
         <progress value={progress} max="100" />
+      </div>
     </div>
-    
   );
 };
 

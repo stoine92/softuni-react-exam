@@ -14,7 +14,7 @@ import Starships from "./mainPage/Starships";
 import Quiz from "./quizFolder/Quiz";
 import Header from "./commons/Header/Header";
 import Footer from "./commons/Footer/Footer";
-import ImgUpload from './imgUpload/ImgUpload';
+import ImgUpload from "./imgUpload/ImgUpload";
 
 function App() {
   // Authenticator
@@ -100,7 +100,6 @@ function App() {
     authListener();
   }, [authListener]);
 
- 
   //Api functions
   useEffect(() => {
     function fetchPeople() {
@@ -108,7 +107,7 @@ function App() {
         .then((data) => data.json())
         .then((data) => setPeople(data.results));
     }
-  
+
     function fetchPlanets() {
       fetch("https://swapi.dev/api/planets/?format=json")
         .then((data) => data.json())
@@ -134,10 +133,17 @@ function App() {
 
   return (
     <div className="App">
-      <Header username={user?.email} isAuthenticated={Boolean(user)} photo={user?.photoURL} />
-      
+      <Header
+        username={user?.email}
+        isAuthenticated={Boolean(user)}
+        photo={
+          user?.photoURL ||
+          "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+        }
+      />
+
       {console.log(user)}
-      <Switch>  
+      <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/login/Login">
           <Login

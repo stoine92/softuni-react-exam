@@ -32,7 +32,6 @@ function Header({ username, isAuthenticated, photo }) {
           {isAuthenticated ? (
             <>
             <Nav.Link href="/quizFolder/Quiz">QnA</Nav.Link>
-            <Nav.Link href="/imgUpload/ImgUpload">Profile pic</Nav.Link>
             </>
           ) : (
             <></>
@@ -48,7 +47,7 @@ function Header({ username, isAuthenticated, photo }) {
         </Nav>
         {isAuthenticated ? (
           <Form inline>
-            <img className="avatar" src={photo} />
+            <Link to="/imgUpload/ImgUpload"><img className="avatar" src={photo} /></Link>
             <p className="welcome">Welcome {username}</p>
           </Form>
         ) : (
