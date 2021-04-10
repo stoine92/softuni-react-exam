@@ -8,6 +8,7 @@ function Header({ username, isAuthenticated, photo }) {
     fire.auth().signOut();
   };
 
+
   return (
     <>
       <Navbar
@@ -23,26 +24,27 @@ function Header({ username, isAuthenticated, photo }) {
 
         <Nav className="mr-auto">
           {isAuthenticated ? (
-            <Nav.Link href="/mainPage/MainPage">Home</Nav.Link>
+            <Nav.Link><Link className="nav" to="/mainPage/MainPage">Home</Link></Nav.Link>
           ) : (
-            <Nav.Link href="/homePage/HomePage">Home</Nav.Link>
+            <Nav.Link><Link className="nav" to="/homePage/HomePage">Home</Link></Nav.Link>
           )}
 
-          <Nav.Link href="/about/About">About</Nav.Link>
+          <Nav.Link><Link className="nav" to="/about/About">About</Link></Nav.Link>
           {isAuthenticated ? (
             <>
-            <Nav.Link href="/quizFolder/Quiz">QnA</Nav.Link>
+            <Nav.Link><Link className="nav" to="/quizFolder/Quiz">QnA</Link></Nav.Link>
             </>
           ) : (
             <></>
           )}
-          <Nav.Link to="#"> | </Nav.Link>
+          <Nav.Link> | </Nav.Link>
           {isAuthenticated ? (
-            <Nav.Link onClick={handleLogout} href="/login/Login">
-              Logout
+            <Nav.Link>
+              <Link className="nav" onClick={handleLogout} to="/" >Logout</Link>
+              
             </Nav.Link>
           ) : (
-            <Nav.Link href="/login/Login">Login / Register</Nav.Link>
+            <Nav.Link><Link className="nav" to="/login/Login">Login / Register</Link></Nav.Link>
           )}
         </Nav>
         {isAuthenticated ? (

@@ -17,6 +17,14 @@ const Login = (props) => {
     isAuthenticated
   } = props;
   
+  function loginButton (e) {
+    e.preventDefault();
+    handleLogin();
+  };
+  function signUpButton (e) {
+    e.preventDefault();
+    handleSignUp();
+  }
   return (
     <>
     <div className="login-form">
@@ -47,7 +55,7 @@ const Login = (props) => {
           <div className="btnContainer">
             {hasAccount ? (
               <>
-                <button className="button" onClick={handleLogin}>
+                <button className="button" onClick={loginButton}>
                   Sign in
                 </button>
                 <p>
@@ -62,7 +70,7 @@ const Login = (props) => {
               </>
             ) : (
               <>
-                <button className="button" onClick={handleSignUp}>
+                <button className="button" onClick={signUpButton}>
                   Sign up
                 </button>
 

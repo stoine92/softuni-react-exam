@@ -1,11 +1,11 @@
 import {Carousel, Button } from "react-bootstrap";
 import "./homePage.css";
+import {Link} from 'react-router-dom';
 
 function HomePage() {
+
   return (
     <>
-    
-     
       <Carousel fade className='test'> 
   <Carousel.Item >
     <img
@@ -16,9 +16,9 @@ function HomePage() {
     <Carousel.Caption>
       <h3>Exclusive content</h3>
       <p>Information about the most popular characters.</p>
-    <Button variant="primary" href="/login/Login" style={{
+    <Button variant="primary" style={{
       marginBottom: '20px',
-    }}>Sign up today</Button>
+    }}><Link to="/login/Login" >Sign up today</Link></Button>
       
     </Carousel.Caption>
   </Carousel.Item>
@@ -32,9 +32,9 @@ function HomePage() {
     <Carousel.Caption>
       <h3>Hidden features and info</h3>
       <p>Shock all your friends with the knolwedge you have.</p>
-      <Button variant="primary" href="/login/Login" style={{
+      <Button variant="primary" style={{
       marginBottom: '20px',
-    }}>Sign up today</Button>
+    }}><Link to="/login/Login" >Sign up today</Link></Button>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -47,9 +47,9 @@ function HomePage() {
     <Carousel.Caption>
       <h3>True Star Wars fan platform</h3>
       <p>For everyone who is one with the forse and the forse is one with him</p>
-      <Button variant="primary" href="/login/Login" style={{
+      <Button variant="primary" style={{
       marginBottom: '20px',
-    }}>Sign up today</Button>
+    }}><Link to="/login/Login" >Sign up today</Link></Button>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
