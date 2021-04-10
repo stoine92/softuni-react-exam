@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/storage';
+import 'firebase/auth';
 
   var firebaseConfig = {
     apiKey: "AIzaSyBjtkX19Vrde1EulUC7SdRwI1At2vOdAKQ",
@@ -9,10 +10,9 @@ import 'firebase/storage';
     messagingSenderId: "780169857708",
     appId: "1:780169857708:web:201b73a5a21eb0e3d66d09"
   };
- 
   const fire = firebase.initializeApp(firebaseConfig);
   const storage = firebase.storage();
+  const auth = firebase.auth();
+
   
-
-
-  export {storage, fire as default};
+  export {storage, auth, fire as default};

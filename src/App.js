@@ -98,8 +98,9 @@ function App() {
 
   useEffect(() => {
     authListener();
-  }, []);
+  }, [authListener]);
 
+ 
   //Api functions
   useEffect(() => {
     function fetchPeople() {
@@ -107,7 +108,7 @@ function App() {
         .then((data) => data.json())
         .then((data) => setPeople(data.results));
     }
-
+  
     function fetchPlanets() {
       fetch("https://swapi.dev/api/planets/?format=json")
         .then((data) => data.json())
@@ -128,16 +129,15 @@ function App() {
     fetchPlanets();
     fetchFilms();
     fetchStarships();
-
     setLoading(false);
   }, []);
 
   return (
     <div className="App">
-      <Header username={user?.email} isAuthenticated={Boolean(user)} />
+      <Header username={user?.email} isAuthenticated={Boolean(user)} photo={user?.photoURL} />
       
-      
-      <Switch>
+      {console.log(user)}
+      <Switch>  
         <Route path="/" exact component={HomePage} />
         <Route path="/login/Login">
           <Login

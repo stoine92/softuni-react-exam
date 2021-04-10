@@ -14,7 +14,6 @@ function HomePage() {
         <Card.Body>
           <Card.Title>Welcome</Card.Title>
           <Button variant="primary" href="/homePage/HomePage">Continue</Button >
-          {/* <Button variant="secondary" style={{marginLeft: '30px'}} href="/underAge/UnderAge">I am under 16</Button > */}
         </Card.Body>
       </Card>
       

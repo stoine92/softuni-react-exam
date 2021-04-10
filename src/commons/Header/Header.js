@@ -1,17 +1,12 @@
 import fire from "../../fire";
-// import IsLoggedInUser from "../../store/store";
-import { useContext } from "react";
 import "./header.css";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {storage} from '../../fire'
 
-function Header({ username, isAuthenticated }) {
+function Header({ username, isAuthenticated, photo }) {
   const handleLogout = (e) => {
     fire.auth().signOut();
   };
-
-  // const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInUser);
 
   return (
     <>
@@ -53,12 +48,12 @@ function Header({ username, isAuthenticated }) {
         </Nav>
         {isAuthenticated ? (
           <Form inline>
+            <img className="avatar" src={photo} />
             <p className="welcome">Welcome {username}</p>
           </Form>
         ) : (
           <Form inline>
             <p className="welcome">Welcome guest</p>
-            
           </Form>
         
         )}
